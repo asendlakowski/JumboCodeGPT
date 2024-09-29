@@ -29,7 +29,7 @@ export default function Chatpage() {
 
     const getHistory = async (username: string) => {
         console.log("USERNAME ", username)
-        const response = await fetch(`/api/history?username=${encodeURIComponent(username)}`, {
+        const response = await fetch(`https://jumbo-code-gpt.vercel.app/api/history?username=${encodeURIComponent(username)}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ export default function Chatpage() {
 
         const query_timestamp = getCurrentTime();
         const newPrompts = [...prompts, [curr_query, query_timestamp]];
-        const response = await fetch('/api/prompt', {
+        const response = await fetch('https://jumbo-code-gpt.vercel.app/api/prompt', {
             method: "POST",
             body: JSON.stringify({
                 token: token,
@@ -64,7 +64,7 @@ export default function Chatpage() {
         setPromts([...prompts, [curr_query, query_timestamp]]);
         setResponses((prevResponses) => [...prevResponses, [responseData.message?.content, response_timestamp]]);
 
-        const store_response = await fetch('/api/storePrompt', {
+        const store_response = await fetch('https://jumbo-code-gpt.vercel.app/api/storePrompt', {
             method: "POST",
             body: JSON.stringify({
                 username: username,

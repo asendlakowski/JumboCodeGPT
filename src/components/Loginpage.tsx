@@ -16,7 +16,7 @@ export default function Loginpage() {
     const attemptLogin = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-          const response = await fetch('/api/login', {
+          const response = await fetch('https://jumbo-code-gpt.vercel.app/api/login', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
