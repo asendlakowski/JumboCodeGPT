@@ -34,24 +34,3 @@ export async function GET(request: Request) {
       });
   }
 }
-
-
-// import Prompt from './models/Prompt.js'
-// import mongoose from 'mongoose';
-
-// const mongodb_uri = "mongodb+srv://alanasendlakowski:RbmJ32lt3jo2nRiD@chatcluster.bquak.mongodb.net/?retryWrites=true&w=majority&appName=ChatCluster"
-
-// mongoose.connect(mongodb_uri)
-// .then(() => console.log("MongoDB connected"))
-// .catch((err) => console.error("MongoDB connection error:", err));
-
-// export async function GET(request: Request) {
-//     const requestBody = await request.json();
-//     const { username } = requestBody;
-//     // const { token } = request.query; // Use token to identify the user
-//     const prompts = await Prompt.find({ username: username }).sort({ timestamp: -1 }).exec();
-//     return new Response(JSON.stringify(prompts), {
-//         status: 200,
-//         headers: { 'Content-Type': 'application/json' },
-//       });
-// });

@@ -30,7 +30,6 @@ export default function Loginpage() {
           if (response.ok) {
             const data = await response.json();
             console.log('Login Successful', data);
-            // setLocation('/cheatchat', { token: data.token });
             sessionStorage.setItem('token', data.token);
             sessionStorage.setItem('username', username);
             setLocation(`/chat`); 

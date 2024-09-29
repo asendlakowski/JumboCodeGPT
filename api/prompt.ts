@@ -59,10 +59,6 @@ export async function POST(request: Request) {
       });
     } catch (error) {
       console.error('Error logging in:', error);
-      // const requestBody = await request.json();
-      // const { token, prompts, responses } = requestBody;
-      // console.log(prompts)
-      // console.log(responses)
   
       return new Response('Login failed', {
         status: 500,

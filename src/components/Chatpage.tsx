@@ -47,16 +47,9 @@ export default function Chatpage() {
     const sendQuery = async () => {
         const curr_query = query
         setQuery("")  
-        console.log("TOKEN ", token)
-        console.log("QUERY ", curr_query)
+
         const query_timestamp = getCurrentTime();
-        // if (prompts.length == 0) {
-        // prompts = [[curr_query, query_timestamp]]
-        // } else {
-        
         const newPrompts = [...prompts, [curr_query, query_timestamp]];
-        // }
-        console.log("PROMPTS ", prompts)
         const response = await fetch('/api/prompt', {
             method: "POST",
             body: JSON.stringify({
@@ -66,14 +59,9 @@ export default function Chatpage() {
                 
             })
         });
-        // console.log("RESPONSE ", response)
         const responseData = await response.json();
         const response_timestamp = getCurrentTime();
-        // console.log("RESPONSE DATA: ", responseData);
 
-        // Access the content in the response data
-        const content = responseData.message?.content;
-        console.log("Content: ", content);
         setPromts([...prompts, [curr_query, query_timestamp]]);
         setResponses((prevResponses) => [...prevResponses, [responseData.message?.content, response_timestamp]]);
 
