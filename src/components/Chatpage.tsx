@@ -1,5 +1,4 @@
-// import { useLocation } from "wouter";
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 import { useRef, useEffect, useState } from 'react';
 
 export default function Chatpage() {
@@ -28,7 +27,7 @@ export default function Chatpage() {
         console.log("STORED TOKEN ", storedToken)
     }, []);
 
-    const getHistory = async (username) => {
+    const getHistory = async (username: string) => {
         console.log("USERNAME ", username)
         const response = await fetch(`/api/history?username=${encodeURIComponent(username)}`, {
             method: 'GET',
